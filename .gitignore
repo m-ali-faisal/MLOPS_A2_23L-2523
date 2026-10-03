@@ -9,3 +9,6 @@ __pycache__/
 Thumbs.db
 screenshots/
 /models
+
+# DVC local-only credentials
+.dvc/config.local
