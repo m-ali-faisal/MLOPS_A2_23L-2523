@@ -26,9 +26,11 @@ def main():
     x_test  = np.load(os.path.join(RAW_DIR, "x_test.npy"))
     y_test  = np.load(os.path.join(RAW_DIR, "y_test.npy"))
 
-    # Normalize to [0, 2]
-    x_train = x_train.astype("float32") / 127.5
-    x_test  = x_test.astype("float32")  / 127.5
+
+    # Normalize to [-1, 1]
+    x_train = x_train.astype("float32") / 127.5 - 1.0
+    x_test  = x_test.astype("float32")  / 127.5 - 1.0
+
 
     # Split validation out of training
     x_tr, x_val, y_tr, y_val = train_test_split(
