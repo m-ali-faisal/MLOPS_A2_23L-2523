@@ -19,5 +19,3 @@ if __name__ == "__main__":
     main()
 
 
-#client id REDACTED
-# clinet sec REDACTED
