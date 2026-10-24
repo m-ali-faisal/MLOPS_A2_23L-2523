@@ -1,11 +1,11 @@
-# params.yaml
+
 preprocess:
   test_size: 0.1
-  seed: 42
+  seed: 44
 
 train:
   dense_units: 512
   dropout_rate: 0.3
-  learning_rate: 0.001
+  learning_rate: 0.002
   epochs: 20
   batch_size: 128

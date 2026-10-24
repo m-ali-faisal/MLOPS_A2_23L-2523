@@ -42,7 +42,7 @@ def main():
         validation_data=(x_val, y_val),
         epochs=t["epochs"],
         batch_size=t["batch_size"],
-        verbose=2,
+        verbose=2
     )
 
     model.save(os.path.join(MODEL_DIR, "model.h5"))

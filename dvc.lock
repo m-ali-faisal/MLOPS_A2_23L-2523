@@ -5,8 +5,8 @@ stages:
     deps:
     - path: src/prepare.py
       hash: md5
-      md5: d8737efa8c018b5a29e18ba784eb3abc
-      size: 710
+      md5: 5624c84654d1656d03e63e026961bd66
+      size: 577
     outs:
     - path: data/raw
       hash: md5
@@ -27,12 +27,12 @@ stages:
       size: 1549
     params:
       params.yaml:
-        preprocess.seed: 42
+        preprocess.seed: 44
         preprocess.test_size: 0.1
     outs:
     - path: data/processed
       hash: md5
-      md5: 0fb6abb08094110b39a706236e9b5a26.dir
+      md5: 8ea5f1966de610f9cbbf1ec64a54a6cf.dir
       size: 219590768
       nfiles: 6
   train:
@@ -40,51 +40,51 @@ stages:
     deps:
     - path: data/processed
       hash: md5
-      md5: 0fb6abb08094110b39a706236e9b5a26.dir
+      md5: 8ea5f1966de610f9cbbf1ec64a54a6cf.dir
       size: 219590768
       nfiles: 6
     - path: src/train.py
       hash: md5
-      md5: 5b811bbe4fe977eb54d7c9e105045131
-      size: 1548
+      md5: f6443922d10c766fca55e3f4f2f3533c
+      size: 1547
     params:
       params.yaml:
         train.batch_size: 128
         train.dense_units: 512
         train.dropout_rate: 0.3
         train.epochs: 20
-        train.learning_rate: 0.001
+        train.learning_rate: 0.002
     outs:
     - path: models/history.csv
       hash: md5
-      md5: 026efbaec7835a3b9a3d31ac6f256bfa
-      size: 1595
+      md5: 23e4e0d443c9f45c9be57339e6903f3d
+      size: 1575
     - path: models/model.h5
       hash: md5
-      md5: ccd71eaed0719398dd7f596e6a3d22a8
+      md5: ed8b5853b4dc12fcb6bad52dc9c0d302
       size: 4910168
   evaluate:
     cmd: python src/evaluate.py
     deps:
     - path: data/processed
       hash: md5
-      md5: 0fb6abb08094110b39a706236e9b5a26.dir
+      md5: 8ea5f1966de610f9cbbf1ec64a54a6cf.dir
       size: 219590768
       nfiles: 6
     - path: models/model.h5
       hash: md5
-      md5: ccd71eaed0719398dd7f596e6a3d22a8
+      md5: ed8b5853b4dc12fcb6bad52dc9c0d302
       size: 4910168
     - path: src/evaluate.py
       hash: md5
-      md5: 87a623fb37f319675240395172d654ad
-      size: 1184
+      md5: e873663c320242665f7fccf00992d769
+      size: 1182
     outs:
     - path: confusion_matrix.png
       hash: md5
-      md5: 82c0e9a0fd3396754f43f80005407825
-      size: 59609
+      md5: a835454d20e9a4f0f6e5c137e7c50130
+      size: 60498
     - path: metrics.json
       hash: md5
-      md5: 5cc2933429c35822addded1f0fc9ebef
-      size: 79
+      md5: 851a7b61c3d5f801871a2b9b4e0eeb7f
+      size: 80
